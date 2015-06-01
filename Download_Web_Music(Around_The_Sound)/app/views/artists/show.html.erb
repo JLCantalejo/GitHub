@@ -1,0 +1,19 @@
+
+<h1><%= @artist.artist_name %></h1>
+<br>
+
+<h3>Discografía</h3><br>
+<% @artist.albums.each do |album| %>
+	<li>
+	<%= album.album_name %>
+		<ul>
+			<% album.songs.each do |song| %>
+				<li> <%= song.name_track %> </li>
+			<% end %>
+		</ul>
+	</li>
+<br>
+<% end %>
+
+
+<%= link_to 'Back', root_path %>
