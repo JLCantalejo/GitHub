@@ -5,12 +5,14 @@
 <h3>Discografía</h3><br>
 <% @artist.albums.each do |album| %>
 	<li>
-	<%= album.album_name %>
-		<ul>
+	<%= album.album_name %>	
+
+		<ol>
 			<% album.songs.each do |song| %>
-				<li> <%= song.name_track %> </li>
+				<li> <%= song.name_track %>  <%= song.duration_track %></li>
+
 			<% end %>
-		</ul>
+		</ol>
 	</li>
 <br>
 <% end %>
