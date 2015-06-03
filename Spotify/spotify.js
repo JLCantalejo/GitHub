@@ -44,6 +44,7 @@ $(document).ready(function(){
 			console.log(element2);
 			for(var i = 0; i < total_length; i++){
 			$('ul').append("<li>" + element2.tracks.items[i].name + "</li>");
+			$('ul').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>");
 
 		};
 		};
