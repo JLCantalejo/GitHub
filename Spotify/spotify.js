@@ -48,13 +48,13 @@ $(document).ready(function(){
 					}else{
 						$('ul').append("<h3>" + element2.artists[i].name + "</h3>");
 					};*/
-					var dateAlbum = element2.release_date;
+					/*var dateAlbum = element2.release_date;
 					console.log(dateAlbum);
 					
 					//var arrayOrdenado = rsort(element2.release_date);
 					for(var i = 0; i < dateAlbum; i++){
 						$dateAlbum.sort();
-					}
+					}*/
 					$('ul').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" +  "</h2>");
 					if (element2.images[1] === undefined){
 						$("ul").append("no hay imagen disponible");
