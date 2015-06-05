@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	$(".buscar").on("click", function(){
-		var art =  $("#artist").val()
-		
+		var art =  $("#artist").val();
+		$('ul').empty();
+
+	
 		//console.log(art);
 			$.ajax({
 			type: "GET",
@@ -39,11 +41,29 @@ $(document).ready(function(){
 			});
 		};
 		function the_album(element2){
-			$('ul').empty();
 			total_length = element2.tracks.items.length;
 			console.log(element2);
+					/*if (element2.artists[i] === undefined){
+						$("ul").append("Nombre desconocido");
+					}else{
+						$('ul').append("<h3>" + element2.artists[i].name + "</h3>");
+					};*/
+					var dateAlbum = element2.release_date;
+					console.log(dateAlbum);
+					
+					//var arrayOrdenado = rsort(element2.release_date);
+					for(var i = 0; i < dateAlbum; i++){
+						$dateAlbum.sort();
+					}
+					$('ul').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" +  "</h2>");
+					if (element2.images[1] === undefined){
+						$("ul").append("no hay imagen disponible");
+					}else{
+						$("ul").append("<img src='" + element2.images[1].url + "'></img>");
+
+					};
 			for(var i = 0; i < total_length; i++){
-			$('ul').append("<li>" + element2.tracks.items[i].name + "</li>");
+			$('ul').append("<li>" + "Canción: " + element2.tracks.items[i].name + " - " + "Álbum: " + element2.name + " - " + "Artista: " + element2.artists[0].name + "</li>");
 			$('ul').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>");
 
 		};
