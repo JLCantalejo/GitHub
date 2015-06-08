@@ -12,7 +12,16 @@
 
     
         <h1>Around The Sound</h1>
-    <label for="artist">Artist:</label>
+    <input type="radio" name="search-field" value="artist" checked>
+    <label for="artist">Artist</label>
+
+	<input type="radio" name="search-field" value="album">
+    <label for="album">Album</label>
+
+	<input type="radio" name="search-field" value="track">
+    <label for="track">Track</label>
+
+
     <input type="text" id="artist">
    	<button class="buscar">Buscar</button>
     <ul id="lista">
