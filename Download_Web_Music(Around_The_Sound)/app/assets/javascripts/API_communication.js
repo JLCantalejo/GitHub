@@ -67,7 +67,7 @@ $(document).ready(function(){
 		
 		function the_album(element2){
 			total_length = element2.tracks.items.length;
-			//console.log(element2);
+			console.log(element2);
 					$('ul').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" +  "</h2>");
 					if (element2.images[0] === undefined){
 						$("ul").append("no hay imagen disponible");
@@ -93,10 +93,10 @@ $(document).ready(function(){
 			});
 		};
 		function the_song(element3){
-			
 			console.log(element3);
-				$('ul').append("<li>" + "Canción: " + element3.tracks.items[i].name + " - " + "Álbum: " + element3.tracks.items[i].album.name + " - " + "Artista: " + element3.tracks.items[i].artists[0].name + "</li>");
-				$('ul').append("<audio src='" + element3.tracks.items[i].preview_url + "' controls ></audio>");
+			
+				$('ul').append("<li>" + "Canción: " + element3.name + " - " + "Álbum: " + element3.album.name + " - " + "Artista: " + element3.artists[0].name + "</li>");
+				$('ul').append("<audio src='" + element3.preview_url + "' controls ></audio>");
 						
 			
 		};
