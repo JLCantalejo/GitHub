@@ -1,6 +1,9 @@
- 	<% @albums.each do |album| %>
- 		<li>
- 		<h2><%= album.album_name %></h2>
- 		</li>
-		<br>
- 	<% end %>
+<% @albums.each do |album| %>
+	<%= album.name %>
+	<% if album.images[0] == nil %>
+		No hay imagen<br>
+	<% else %>
+	<img src="<%= album.images[1]['url'] %>"><br>
+	<% end %>
+<% end %>
+ 	

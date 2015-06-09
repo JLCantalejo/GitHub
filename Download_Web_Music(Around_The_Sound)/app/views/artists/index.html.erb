@@ -1,16 +1,4 @@
-<h1>Listing artists</h1> 
 
- 	<% @artists.each do |artist| %>
- 		<li>
- 		<%= artist.artist_name %>
- 		<%= link_to 'Show',  artist_path(artist)%>
- 		</li>
-		<br>
- 	<% end %>
- 	 		<%= link_to 'Show Albums',  artists_albums_path(@albums)%>
-
-
-    
         <h1>Around The Sound</h1>
     <input type="radio" name="search-field" value="artist" checked>
     <label for="artist">Artist</label>
