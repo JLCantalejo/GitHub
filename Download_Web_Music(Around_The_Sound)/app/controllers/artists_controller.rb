@@ -3,7 +3,8 @@ class ArtistsController < ApplicationController
 		@artists = Artist.all
 	end
 	def show
-		@artist = Artist.find params[:id]
-		@albums = @artist.albums
+		artist_id = params[:id]
+		artist_spotify = RSpotify::Artist.find(artist_id)
+		@artists = artist_spotify
 	end
 end

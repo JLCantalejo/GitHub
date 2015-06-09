@@ -1,21 +1,9 @@
 
-<h1><%= @artist.artist_name %></h1>
-<br>
-
-<h3>Discografía</h3><br>
-<% @artist.albums.each do |album| %>
-	<li>
-	<%= album.album_name %>	
-
-		<ol>
-			<% album.songs.each do |song| %>
-				<li> <%= song.name_track %>  <%= song.duration_track %></li>
-
-			<% end %>
-		</ol>
-	</li>
-<br>
-<% end %>
-
+	<h1><%= @artists.name %></h1><br>
+	<% if @artists.images[0] == nil %>
+		No hay imagen<br>
+	<% else %>
+	<img src="<%= @artists.images[0]['url'] %>"><br>
+	<% end %>
 
 <%= link_to 'Back', root_path %>

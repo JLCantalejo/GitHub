@@ -4,8 +4,13 @@ class AlbumsController < ApplicationController
 		@albums = @artist.albums
 	end
 	def show
-		@artist = Artist.find params[:artist_id]
-		@album = @artist.albums.find params[:id]
+
+
+		artist_id = params[:id]
+		artist_spotify = RSpotify::Artist.find(artist_id)
+		@albums = artist_spotify.albums
+		
+		
 	end
 	def view_albums
 		@albums = Album.all
