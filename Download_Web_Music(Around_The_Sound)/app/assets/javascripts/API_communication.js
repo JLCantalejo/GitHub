@@ -30,7 +30,7 @@ $(document).ready(function(){
 						$("ul").append("<img src='" + element.artists.items[i].images[1].url + "'></img>");
 
 					};
-					$('ul').append("<h2>" + element.artists.items[i].name + "</h2>");
+					$('ul').append("<a href='artists/"+element.artists.items[i].id+"'><h2>" + element.artists.items[i].name + "</h2></a>");
 
 				};
 				break;
