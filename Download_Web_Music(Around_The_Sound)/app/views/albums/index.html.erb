@@ -1,9 +1,14 @@
-<% @albums.each do |album| %>
-	<%= album.name %>
-	<% if album.images[0] == nil %>
-		No hay imagen<br>
-	<% else %>
-	<img src="<%= album.images[1]['url'] %>"><br>
+<ul>
+	<% @albums.each_with_index do |album, i| %>
+		<li><h3><%= album.name %></h3></li>
+		<% if album.images[0] == nil %>
+			<li>No hay imagen</li><br>
+		<% else %>
+			<li><img src="<%= album.images[1]['url'] %>"></li><br>
+		<% end %>
+		<% album.tracks.each do |track| %>
+			<li><%= track.name %></li>
+			<li><audio src="<%= track.preview_url %>" controls ></audio></li>
+		<% end %>
 	<% end %>
-<% end %>
- 	
+ </ul>

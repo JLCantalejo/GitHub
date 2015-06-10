@@ -4,7 +4,7 @@
 	<% if @artist.images[0] == nil %>
 		No hay imagen<br>
 	<% else %>
-	<img src="<%= @artist.images[0]['url'] %>"><br>
+		<img src="<%= @artist.images[0]['url'] %>"><br>
 	<% end %>
 
 <%= link_to 'Back', root_path %>
