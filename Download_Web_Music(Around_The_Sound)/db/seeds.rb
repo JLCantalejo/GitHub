@@ -13,18 +13,6 @@ Album.create( album_name: "", artist_id: 4 )
 Album.create( album_name: "", artist_id: 4 )
 Album.create( album_name: "", artist_id: 5 )
 
-Song.create( name_track: "", duration_track: "", album_id: 1 )
-Song.create( name_track: "", duration_track: "", album_id: 2 )
-Song.create( name_track: "", duration_track: "", album_id: 3 )
-Song.create( name_track: "", duration_track: "", album_id: 3 )
-Song.create( name_track: "", duration_track: "", album_id: 4 )
-Song.create( name_track: "", duration_track: "", album_id: 4 )
-Song.create( name_track: "", duration_track: "", album_id: 5 )
-Song.create( name_track: "", duration_track: "", album_id: 5 )
-Song.create( name_track: "", duration_track: "", album_id: 6 )
-Song.create( name_track: "", duration_track: "", album_id: 7 )
-Song.create( name_track: "", duration_track: "", album_id: 8 )
-Song.create( name_track: "", duration_track: "", album_id: 8 )
 
 
 # This file should contain all the record creation needed to seed the database with its default values.

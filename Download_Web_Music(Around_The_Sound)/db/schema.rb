@@ -26,12 +26,5 @@ ActiveRecord::Schema.define(version: 20150601123134) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "songs", force: :cascade do |t|
-    t.string   "name_track"
-    t.string   "duration_track"
-    t.integer  "album_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
 
 end
