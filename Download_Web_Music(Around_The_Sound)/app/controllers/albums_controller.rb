@@ -4,7 +4,6 @@ class AlbumsController < ApplicationController
 		artist_spotify = RSpotify::Artist.find(artist_id)
 		@albums = artist_spotify.albums
 		
-		binding.pry
 	end
 
 	def show
