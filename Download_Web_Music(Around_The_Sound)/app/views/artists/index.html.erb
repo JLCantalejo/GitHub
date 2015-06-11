@@ -1,19 +1,20 @@
 
         <h1>Around The Sound</h1>
-    <input type="radio" name="search-field" value="artist" checked>
+    <input type="radio" id="artist" name="search-field" value="artist" checked>
     <label for="artist">Artist</label>
 
-	<input type="radio" name="search-field" value="album">
+	<input type="radio" id="album" name="search-field" value="album">
     <label for="album">Album</label>
 
-	<input type="radio" name="search-field" value="track">
+	<input type="radio" id="track" name="search-field" value="track">
     <label for="track">Track</label>
 
-
-    <input type="text" id="artist">
+    <input type="text" id="artist-album-track">
    	<button class="buscar">Buscar</button>
     <ul id="lista">
-        <li></li>
+        <li class="artist"></li>
+        <li class="album"></li>
+        <li class="track"></li>
     </ul>
 
    

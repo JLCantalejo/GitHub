@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(".buscar").on("click", function(){
-		var art =  $("#artist").val();
+		var art =  $("#artist-album-track").val();
 		selectOption = $("input[name='search-field']:checked").val();
 
 		$('ul').empty();
@@ -19,7 +19,7 @@ $(document).ready(function(){
 		var idAlbum;
 		var idSong;
 		function searchArtistAlbumTrack(element){
-			console.log(element);
+			//console.log(element);
 			switch(selectOption){
 				case "artist":
 			total_length = element.artists.items.length;
@@ -67,21 +67,32 @@ $(document).ready(function(){
 		
 		function the_album(element2){
 			total_length = element2.tracks.items.length;
-			console.log(element2);
-					$('ul').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" +  "</h2>");
-					if (element2.images[0] === undefined){
-						$("ul").append("no hay imagen disponible");
-					}else{
-						$("ul").append("<img src='" + element2.images[1].url + "'></img>");
+			$('ul').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" + "</h2>" + "<button class=buyAlbum id='"+element2.id+"'' >"+'Buy'+"</button>");
+			if (element2.images[0] === undefined){
+				$("ul").append("no hay imagen disponible");
+			}else{
+				$("ul").append("<img src='" + element2.images[1].url + "'></img>");
 
-					};
-						for(var i = 0; i < total_length; i++){
-							//console.log(element2);
-						$('ul').append("<li>" + "Canción: " + element2.tracks.items[i].name + " - " + "Álbum: " + element2.name + " - " + "Artista: " + element2.artists[0].name + "</li>");
-						$('ul').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>");
-						
-						};
-					};
+			};
+				for(var i = 0; i < total_length; i++){
+					//console.log(element2);
+				$('ul').append("<li>" + "Canción: " + element2.tracks.items[i].name + " - " + "Álbum: " + element2.name + " - " + "Artista: " + element2.artists[0].name + "</li>");
+				$('ul').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>");
+				
+				};
+		};
+		
+		var idsAlbumBuy = [];
+		$("body").on("click",".buyAlbum", function(){
+
+			var idCurrentAlbum = $(this)[0].id
+	
+			idsAlbumBuy.push(idCurrentAlbum);
+			
+			console.log(idsAlbumBuy);
+		
+		});
+
 		function getSongsFromArtist(idSong) {
 			$.ajax({
 				type: "GET",
@@ -93,11 +104,12 @@ $(document).ready(function(){
 			});
 		};
 		function the_song(element3){
-			console.log(element3);
+			//console.log(element3);
 			
 				$('ul').append("<li>" + "Canción: " + element3.name + " - " + "Álbum: " + element3.album.name + " - " + "Artista: " + element3.artists[0].name + "</li>");
 				$('ul').append("<audio src='" + element3.preview_url + "' controls ></audio>");
 						
 			
 		};
-	});
+	
+});
