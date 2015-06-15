@@ -66,6 +66,7 @@ $(document).ready(function(){
 		};
 		
 		function the_album(element2){
+			
 			total_length = element2.tracks.items.length;
 			$('ul').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" + "</h2>" + "<button class=buyAlbum id='"+element2.id+"'' >"+'Buy'+"</button>");
 			if (element2.images[0] === undefined){
@@ -75,24 +76,58 @@ $(document).ready(function(){
 
 			};
 				for(var i = 0; i < total_length; i++){
-					//console.log(element2);
+					console.log(element2);
 				$('ul').append("<li>" + "Canción: " + element2.tracks.items[i].name + " - " + "Álbum: " + element2.name + " - " + "Artista: " + element2.artists[0].name + "</li>");
 				$('ul').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>");
 				
 				};
 		};
+			var idkas = [];
+
+			var idsAlbumBuy = [];
 		
-		var idsAlbumBuy = [];
 		$("body").on("click",".buyAlbum", function(){
 
 			var idCurrentAlbum = $(this)[0].id
 	
 			idsAlbumBuy.push(idCurrentAlbum);
 			
-			console.log(idsAlbumBuy);
-		
-		});
+			localStorage.setItem('album', idsAlbumBuy);
 
+			var id = localStorage.getItem('album');
+
+			idkas.push(id);
+
+			total_length = id.length;
+
+			for(var i = 0; i < total_length; i++){
+				var idfirst = id
+				console.log(idfirst);
+			}
+
+
+			$('ul').append();
+				$.ajax({
+				type: "GET",
+				url: "https://api.spotify.com/v1/albums/" + idfirst,
+				data: "",
+				success: function(response){boxAlbum(response)},
+				error: function(){alert("Error")},
+				dataType: "json",
+			});
+			
+				function boxAlbum(element4){
+			console.log(element4.name);
+			console.log(element4, "hola");
+				$('ul').append("<li>" + "Álbum: " + element4.name + "</li>");
+						
+			
+		};
+});
+
+		
+		
+		
 		function getSongsFromArtist(idSong) {
 			$.ajax({
 				type: "GET",
