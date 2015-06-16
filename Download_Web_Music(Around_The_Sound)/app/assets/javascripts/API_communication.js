@@ -82,9 +82,15 @@ $(document).ready(function(){
 				
 				};
 		};
+			//var idfirst;
+
 			var idkas = [];
 
+			console.log(idkas);
+
 			var idsAlbumBuy = [];
+
+			console.log(idsAlbumBuy);
 		
 		$("body").on("click",".buyAlbum", function(){
 
@@ -98,18 +104,17 @@ $(document).ready(function(){
 
 			idkas.push(id);
 
-			total_length = id.length;
-
-			for(var i = 0; i < total_length; i++){
-				var idfirst = id
+			/*idkas.forEach(function(album, i){
+			
+				idfirst = album;
 				console.log(idfirst);
-			}
+			});*/
 
 
 			$('ul').append();
 				$.ajax({
 				type: "GET",
-				url: "https://api.spotify.com/v1/albums/" + idfirst,
+				url: "https://api.spotify.com/v1/albums/" + idsAlbumBuy.shift(),
 				data: "",
 				success: function(response){boxAlbum(response)},
 				error: function(){alert("Error")},
