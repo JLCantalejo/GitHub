@@ -82,27 +82,30 @@ $(document).ready(function(){
 				
 				};
 		};
+			
 			//var idfirst;
 
-			var idkas = [];
+			/*var idKas = [];*/
 
-			console.log(idkas);
 
-			var idsAlbumBuy = [];
+			//var idsAlbumBuy = [];
+			
+			var nameAlbumBox = [];
 
-			console.log(idsAlbumBuy);
 		
 		$("body").on("click",".buyAlbum", function(){
 
 			var idCurrentAlbum = $(this)[0].id
-	
-			idsAlbumBuy.push(idCurrentAlbum);
 			
-			localStorage.setItem('album', idsAlbumBuy);
+			console.log(idCurrentAlbum);
+	
+			//idsAlbumBuy.push(idCurrentAlbum);
+			
+			localStorage.setItem('album', idCurrentAlbum);
 
-			var id = localStorage.getItem('album');
+			var idAlbumBox = localStorage.getItem('album');
 
-			idkas.push(id);
+			console.log(idAlbumBox);
 
 			/*idkas.forEach(function(album, i){
 			
@@ -110,27 +113,40 @@ $(document).ready(function(){
 				console.log(idfirst);
 			});*/
 
-
 			$('ul').append();
 				$.ajax({
 				type: "GET",
-				url: "https://api.spotify.com/v1/albums/" + idsAlbumBuy.shift(),
+				url: "https://api.spotify.com/v1/albums/" + idAlbumBox,
 				data: "",
 				success: function(response){boxAlbum(response)},
 				error: function(){alert("Error")},
 				dataType: "json",
 			});
-			
+
+		
 				function boxAlbum(element4){
-			console.log(element4.name);
-			console.log(element4, "hola");
-				$('ul').append("<li>" + "Álbum: " + element4.name + "</li>");
-						
+					console.log(element4.name);
+					console.log(element4, "hola");
+
+				
+				var names = element4.name;
+
+				nameAlbumBox = localStorage.getItem('namesOfAlbums')
+				nameAlbumBox += ", " + element4.name
+				localStorage.setItem('namesOfAlbums', nameAlbumBox);
+
+				var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums')
+
+				$('.box').append("<li>" + namesOfAlbumInBox + "</li>");
+
+				console.log(names);
+				console.log(nameAlbumBox)
+
+				$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
+				
 			
 		};
 });
-
-		
 		
 		
 		function getSongsFromArtist(idSong) {
@@ -151,5 +167,7 @@ $(document).ready(function(){
 						
 			
 		};
-	
+	$(".minimizar").on("click", function(){
+	$(".box").toggleClass("min-box");
+});
 });

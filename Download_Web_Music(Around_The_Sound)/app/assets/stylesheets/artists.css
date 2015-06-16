@@ -1,15 +1,32 @@
+body{
+    	margin: 0 !important;
+    	padding: 0 !important;
+    }
 .content-form-search{
 	position: fixed;
 	background-color: red;
 	width: 99%;
 	text-align: center;
 	border: 8px solid black;
-	
 }
-body{
-    	margin: 0 !important;
-    	padding: 0 !important;
-    }
+.box{
+	position: fixed;
+	margin-left: 800px;
+	margin-top: 100px;
+	border: solid;
+	width: 500px;
+	height: 300px|auto;
+	visibility: visible;
+
+}
+.min-box{
+	width: 200px;
+	height: 50px;
+	margin-top: 100px;
+	margin-left:1100px;
+	content: none;
+}
+
 
 /*
   Place all the styles related to the matching controller here.
