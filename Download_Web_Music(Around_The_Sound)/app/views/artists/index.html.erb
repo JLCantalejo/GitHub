@@ -1,4 +1,22 @@
- 
+<div class="content-form-search">
+        <h1>Around The Sound</h1>
+       
+        <input type="radio" id="artist" name="search-field" value="artist" checked>
+        <label for="artist">Artist</label>
+
+        <input type="radio" id="album" name="search-field" value="album">
+        <label for="album">Album</label>
+
+        <input type="radio" id="track" name="search-field" value="track">
+        <label for="track">Track</label>
+
+        <input type="text" id="artist-album-track">
+        <button class="buscar">Buscar</button>
+
+        <%= link_to 'Box', boxes_path %>
+</div>
+
+
     <ul id="lista">
         <li class="artist"></li>
         <li class="album"></li>
