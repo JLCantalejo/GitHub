@@ -126,15 +126,20 @@ $(document).ready(function(){
 			var names = element4.name;
 
 			nameAlbumBox = localStorage.getItem('namesOfAlbums')
-			nameAlbumBox += ", " + element4.name
+			nameAlbumBox += "," + element4.name
 			localStorage.setItem('namesOfAlbums', nameAlbumBox);
 		};
 	});
 
-	
+		
 	var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums')
-	$('.box').append("<li>" + namesOfAlbumInBox + "</li>");
-	$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
+	n = namesOfAlbumInBox.split(",");
+	n.splice(0,1);
+	for(var i = 0; i < n.length; i++){
+		console.log(n)
+	$('.box').append("<li>" + n[i] + "<button class=destroyAlbum>"+'Delete'+"</button>" +"</li>");
+	//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
+	};
 
 
 	function getSongsFromArtist(idSong) {
