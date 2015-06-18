@@ -1,13 +1,17 @@
 body{
-    	margin: 0 !important;
-    	padding: 0 !important;
-    }
+	list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 .content-form-search{
 	position: fixed;
 	background-color: red;
 	width: 99%;
 	text-align: center;
 	border: 8px solid black;
+}
+li{
+	list-style: none;
 }
 /*
 .box{

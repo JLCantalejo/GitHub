@@ -1,6 +1,6 @@
 <ul>
 	<% @albums.each do |album| %>
-			<li><h3><%= album.name %></h3></li>
+			<li><h3><%= album.name %></h3><button class="buy-album">Buy</button></li>
 		<% if album.images[0] == nil %>
 			<li>No hay imagen</li><br>
 		<% else %>
