@@ -137,10 +137,13 @@ $(document).ready(function(){
 	n.splice(0,1);
 	for(var i = 0; i < n.length; i++){
 		console.log(n)
-	$('.box').append("<li>" + n[i] + "<button class=destroyAlbum>"+'Delete'+"</button>" +"</li>");
+	$('.box').append("<li class=listAlbums>" + n[i] + "<button class=destroyAlbum>"+'Delete'+"</button>" +"</li>");
 	//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 	};
-
+	$("body").on("click",".destroy-all-albums", function(){
+		localStorage.removeItem('namesOfAlbums');
+		
+	});
 
 	function getSongsFromArtist(idSong) {
 		$.ajax({
