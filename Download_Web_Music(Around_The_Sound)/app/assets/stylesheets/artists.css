@@ -1,9 +1,9 @@
 body{
-	list-style: none;
     margin: 0 !important;
     padding: 0 !important;
 }
 .content-form-search{
+	z-index: 0;
 	position: fixed;
 	background-color: red;
 	width: 99%;
