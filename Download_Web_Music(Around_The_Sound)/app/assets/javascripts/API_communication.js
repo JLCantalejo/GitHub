@@ -83,34 +83,44 @@ $(document).ready(function(){
 			
 			};
 	};
+
+	
+
+	$("body").on("click",".buy-album", function(){
+		var idAlbumBuyGem = $(this)[0].id;
+		localStorage.setItem('albumGem', idAlbumBuyGem);
+		var idAlbumBoxGem = localStorage.getItem('albumGem');
 		
-		//var idfirst;
-
-		/*var idKas = [];*/
-
-
-		//var idsAlbumBuy = [];
-		
-		var nameAlbumBox = [];
-
-	$(".buy-album").on("click", function(){
-		var nameBuy = $(this).attr("name");
-		nameAlbumBox += "," + nameBuy
-		
+		$('ul').append();
+			$.ajax({
+			type: "GET",
+			url: "https://api.spotify.com/v1/albums/" + idAlbumBoxGem,
+			data: "",
+			success: function(response){boxAlbumGem(response)},
+			error: function(){alert("Error")},
+			dataType: "json",
 		});
-	$("body").on("click",".buyAlbum", function(){
+
+		var nameAlbumBoxGem = [];
+		function boxAlbumGem(element4){
+			console.log(element4.name);
+			console.log(element4, "hola");
+
+			var namesGem = element4.name;
+
+			nameAlbumBoxGem = localStorage.getItem('namesOfAlbumsGem')
+			nameAlbumBoxGem += "," + element4.name
+			localStorage.setItem('namesOfAlbumsGem', nameAlbumBoxGem);
+		};
+	});
+
 		
+	
+	
+	$("body").on("click",".buyAlbum", function(){
 		var idCurrentAlbum = $(this)[0].id
-		console.log(idCurrentAlbum);
 		localStorage.setItem('album', idCurrentAlbum);
 		var idAlbumBox = localStorage.getItem('album');
-		console.log(idAlbumBox);
-
-		/*idkas.forEach(function(album, i){
-		
-			idfirst = album;
-			console.log(idfirst);
-		});*/
 
 		$('ul').append();
 			$.ajax({
@@ -122,7 +132,7 @@ $(document).ready(function(){
 			dataType: "json",
 		});
 
-	
+		var nameAlbumBox = [];
 		function boxAlbum(element4){
 			console.log(element4.name);
 			console.log(element4, "hola");
@@ -134,20 +144,20 @@ $(document).ready(function(){
 			localStorage.setItem('namesOfAlbums', nameAlbumBox);
 		};
 	});
-
-		
-	var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums')
+	
+	var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums') + localStorage.getItem('namesOfAlbumsGem')
 	n = namesOfAlbumInBox.split(",");
 	n.splice(0,1);
 	for(var i = 0; i < n.length; i++){
 		console.log(n)
-	$('.box').append("<li class=listAlbums>" + n[i] + "<button class=destroyAlbum>"+'Delete'+"</button>" +"</li>");
-	//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
+		$('.box').append("<li class=listAlbums>" + "Album: " + n[i] + "<button class=destroyAlbum>"+'Delete'+"</button>" +"</li>");
+		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 	};
 	$("body").on("click",".destroy-all-albums", function(){
 		localStorage.removeItem('namesOfAlbums');
-
+		localStorage.removeItem('namesOfAlbumsGem');
 	});
+	
 
 	function getSongsFromArtist(idSong) {
 		$.ajax({
