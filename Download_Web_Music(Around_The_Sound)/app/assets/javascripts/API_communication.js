@@ -83,7 +83,7 @@ $(document).ready(function(){
 			};
 	};
 
-	
+	var nameAlbumBoxGem;
 
 	$("body").on("click",".buy-album", function(){
 		var idAlbumBuyGem = $(this)[0].id;
@@ -152,18 +152,46 @@ $(document).ready(function(){
 			localStorage.setItem('priceAlbumBox', priceAlbum);
 		};
 	});
-	
-	var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums') + localStorage.getItem('namesOfAlbumsGem')
-	n = namesOfAlbumInBox.split(",");
+	if (localStorage.getItem('namesOfAlbumsGem') == null){
+		var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums') + localStorage.getItem('namesOfAlbumsGem')
+	}else{
+		var namesOfAlbumInBox = localStorage.getItem('namesOfAlbumsGem') + localStorage.getItem('namesOfAlbums')
+	}
+	var n = namesOfAlbumInBox.split(",");
 	n.pop();
 
 	for(var i = 0; i < n.length; i++){
 		console.log(n)
-		$('.box1').append("<li class=col-lg-6>" + "Album: " + n[i] + "<button class=destroyAlbum>"+ n[i] +'Delete'+"</button>" +"</li>");
+		$('.box1').append("<li>" + "Album: " + n[i] /*+ "<button class=destroyAlbum>"+'Delete'+"</button>"*/ + "</li>" + "<br>" + "<hr>");
 		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 		
 	};
-$("body").on("click",".destroyAlbum", function(){
+	if (localStorage.getItem('priceAlbumBoxGem') == null){
+		var pricesOfALbumsInBox = localStorage.getItem('priceAlbumBox') + localStorage.getItem('priceAlbumBoxGem')
+	}else{
+		var pricesOfALbumsInBox = localStorage.getItem('priceAlbumBoxGem') + localStorage.getItem('priceAlbumBox')
+	}
+	var x = pricesOfALbumsInBox.split(",");
+	x.pop();
+	
+	var totalPrice = 0
+
+	for(var i = 0; i < x.length; i++){
+		console.log(x)
+		totalPrice += parseFloat(x[i]);
+		console.log(totalPrice)
+		$('.box2').append("<li>" + "Price: " + x[i] + "€" + "</li>" + "<br>" + "<hr>");
+		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
+	};
+	$('.total-price span').append("<span>" + totalPrice + "€" + "</span>");
+
+	console.log(x);
+
+	$("body").on("click",".destroy-all-albums", function(){
+		localStorage.clear();
+	});
+
+	$("body").on("click",".destroyAlbum", function(){
 		localStorage.removeItem('namesOfAlbums')
 		/*var nameAlbumDelete = $(this).val();
 		console.log(nameAlbumDelete)*/
@@ -173,28 +201,6 @@ $("body").on("click",".destroyAlbum", function(){
 		nameAlbumBox -= "," + nameAlbumDelete
 		localStorage.setItem('namesOfAlbums', nameAlbumBox);*/
 	});
-	var pricesOfALbumsInBox = localStorage.getItem('priceAlbumBox') + localStorage.getItem('priceAlbumBoxGem')
-	x = pricesOfALbumsInBox.split(",");
-	x.pop();
-	
-	var totalPrice = 0
-
-	for(var i = 0; i < x.length; i++){
-		console.log(x)
-		totalPrice += parseFloat(x[i]);
-		console.log(totalPrice)
-		$('.box2').append("<li class=col-lg-6>" + "Price: " + x[i] + "€" + "</li>");
-		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
-	};
-	$('.total-price').append("<li>" + "Total Price:" + totalPrice + "€" + "</li>");
-
-	console.log(x);
-
-	$("body").on("click",".destroy-all-albums", function(){
-		localStorage.clear();
-	});
-
-	
 
 	function getSongsFromArtist(idSong) {
 		$.ajax({
