@@ -77,7 +77,6 @@ $(document).ready(function(){
 
 		};
 			for(var i = 0; i < total_length; i++){
-				console.log(element2);
 			$('ul').append("<li>" + "Canción: " + element2.tracks.items[i].name + " - " + "Álbum: " + element2.name + " - " + "Artista: " + element2.artists[0].name + "</li>");
 			$('ul').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>");
 			
@@ -101,22 +100,26 @@ $(document).ready(function(){
 			dataType: "json",
 		});
 
-		var nameAlbumBoxGem = [];
+		var priceAlbumGem;
+		var nameAlbumBoxGem;
 		function boxAlbumGem(element4){
-			console.log(element4.name);
-			console.log(element4, "hola");
-
-			var namesGem = element4.name;
-
 			nameAlbumBoxGem = localStorage.getItem('namesOfAlbumsGem')
-			nameAlbumBoxGem += "," + element4.name
+			if (nameAlbumBoxGem == null){
+				nameAlbumBoxGem = []
+			}
+			nameAlbumBoxGem += element4.name + ","
 			localStorage.setItem('namesOfAlbumsGem', nameAlbumBoxGem);
+
+			priceAlbumGem = localStorage.getItem('priceAlbumBoxGem')
+			if (priceAlbumGem == null){
+				priceAlbumGem = []
+			}
+			priceAlbumGem += element4.tracks.total + "," 
+			localStorage.setItem('priceAlbumBoxGem', priceAlbumGem);
 		};
 	});
+	var nameAlbumBox;
 
-		
-	
-	
 	$("body").on("click",".buyAlbum", function(){
 		var idCurrentAlbum = $(this)[0].id
 		localStorage.setItem('album', idCurrentAlbum);
@@ -131,32 +134,66 @@ $(document).ready(function(){
 			error: function(){alert("Error")},
 			dataType: "json",
 		});
-
-		var nameAlbumBox = [];
+		var priceAlbum;
+		var nameAlbumBox;
 		function boxAlbum(element4){
-			console.log(element4.name);
-			console.log(element4, "hola");
-
-			var names = element4.name;
-
 			nameAlbumBox = localStorage.getItem('namesOfAlbums')
-			nameAlbumBox += "," + element4.name
+			if (nameAlbumBox == null){
+				nameAlbumBox = []
+			}
+			nameAlbumBox += element4.name + ","
 			localStorage.setItem('namesOfAlbums', nameAlbumBox);
+
+			priceAlbum = localStorage.getItem('priceAlbumBox')
+			if (priceAlbum == null){
+				priceAlbum = []
+			}
+			priceAlbum += element4.tracks.total + "," 
+			localStorage.setItem('priceAlbumBox', priceAlbum);
 		};
 	});
 	
 	var namesOfAlbumInBox = localStorage.getItem('namesOfAlbums') + localStorage.getItem('namesOfAlbumsGem')
 	n = namesOfAlbumInBox.split(",");
-	n.splice(0,1);
+	n.pop();
+
 	for(var i = 0; i < n.length; i++){
 		console.log(n)
-		$('.box').append("<li class=listAlbums>" + "Album: " + n[i] + "<button class=destroyAlbum>"+'Delete'+"</button>" +"</li>");
+		$('.box1').append("<li class=col-lg-6>" + "Album: " + n[i] + "<button class=destroyAlbum>"+ n[i] +'Delete'+"</button>" +"</li>");
+		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
+		
+	};
+$("body").on("click",".destroyAlbum", function(){
+		localStorage.removeItem('namesOfAlbums')
+		/*var nameAlbumDelete = $(this).val();
+		console.log(nameAlbumDelete)*/
+		//nameAlbumDelete.remove();
+		
+		/*nameAlbumBox = localStorage.getItem('namesOfAlbums');
+		nameAlbumBox -= "," + nameAlbumDelete
+		localStorage.setItem('namesOfAlbums', nameAlbumBox);*/
+	});
+	var pricesOfALbumsInBox = localStorage.getItem('priceAlbumBox') + localStorage.getItem('priceAlbumBoxGem')
+	x = pricesOfALbumsInBox.split(",");
+	x.pop();
+	
+	var totalPrice = 0
+
+	for(var i = 0; i < x.length; i++){
+		console.log(x)
+		totalPrice += parseFloat(x[i]);
+		console.log(totalPrice)
+		$('.box2').append("<li class=col-lg-6>" + "Price: " + x[i] + "€" + "</li>");
 		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 	};
+	$('.total-price').append("<li>" + "Total Price:" + totalPrice + "€" + "</li>");
+
+	console.log(x);
+
 	$("body").on("click",".destroy-all-albums", function(){
-		localStorage.removeItem('namesOfAlbums');
-		localStorage.removeItem('namesOfAlbumsGem');
+		localStorage.clear();
 	});
+
 	
 
 	function getSongsFromArtist(idSong) {

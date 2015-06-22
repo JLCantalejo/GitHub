@@ -1,9 +1,10 @@
 body{
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
 }
 .content-form-search{
-	z-index: 0;
+	z-index: 999999;
+	top: 0;
 	position: fixed;
 	background-color: red;
 	width: 99%;
@@ -12,6 +13,15 @@ body{
 }
 li{
 	list-style: none;
+}
+.li-album{
+	width: 25%;
+}
+.li-price{
+	width: 25%;	
+}
+.box1{
+	content: 20%;
 }
 /*
 .box{
