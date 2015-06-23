@@ -2,6 +2,11 @@ body{
     margin: 0;
     padding: 0;
 }
+.body-box{
+	background-color: silver;
+	border: solid 20px white;
+	height: auto;
+}
 .content-form-search{
 	z-index: 999999;
 	top: 0;
@@ -23,36 +28,41 @@ li{
 	font-size: 20px;
 	background-color: yellow;
 	border: solid 5px green;
-	float: right;
 	padding: 20px;
-	margin: 10px;
+	margin: 35px;
+	width: 140px;
+	height: 75px;
 }
 hr{
 	border: solid 1px;
+}
+#logo{
+	float: left;
+	margin-left: 50px;
+	width: 275px;
 }
 #content-header{
 	width: 100%;
 	z-index: 999999;
 	position: fixed;
-	background-color: #ADFF2F;
-	height: 180px;
-	border: solid 10px white;
+	background-color: #008000;
+	height: 200px;
+	border: solid 20px white;
 }
-#title-box{
-	
-	text-align: center;
-	height: 100px;
-	padding: 30px;
+
+#shopping-title{
+	width: 240px;
+	margin-left: 100px;
 }
-#title-box h1{
-	color: aliceblue;
-	font-family: Trebuchet MS;
-	font-size: 70px;
-	margin: 0%;
-	padding: 0%;
+#cart-title{
+	width: 200px;
+	margin-left: 50px;
+}
+#musica-title{
+	float: right;
+	width: 300px;
 }
 .row{
-	background-color: silver;
 	font-family: Impact;
 	margin-top: 100px;
 	width: 1000px;
@@ -61,6 +71,12 @@ hr{
 .container{
 
 	padding: 100px;
+}
+.destroy-all-albums{
+	z-index: 999999999;
+	position: fixed;
+	top: 330px;
+	margin-left: 60px;
 }
 
 /*
