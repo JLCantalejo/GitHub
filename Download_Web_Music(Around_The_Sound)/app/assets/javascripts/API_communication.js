@@ -218,5 +218,4 @@ $(document).ready(function(){
 		$('ul').append("<li>" + "Canción: " + element3.name + " - " + "Álbum: " + element3.album.name + " - " + "Artista: " + element3.artists[0].name + "</li>");
 		$('ul').append("<audio src='" + element3.preview_url + "' controls ></audio>");	
 	};
-	
 });
