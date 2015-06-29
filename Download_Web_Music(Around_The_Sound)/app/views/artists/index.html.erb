@@ -1,5 +1,6 @@
 <div class="content-form-search">
-        <h1>Around The Sound</h1>
+    <img src="/Logo2.png" id="logo2">
+    <div id="browser">
        
         <input type="radio" id="artist" name="search-field" value="artist" checked>
         <label for="artist">Artist</label>
@@ -8,22 +9,24 @@
         <label for="album">Album</label>
 
         <input type="radio" id="track" name="search-field" value="track">
-        <label for="track">Track</label>
+        <label for="track">Track</label><br>
 
         <input type="text" id="artist-album-track">
         <button class="buscar">Buscar</button>
 
+        
+    </div>
+    <div id="link-box">
         <%= link_to 'Box', boxes_path %>
+    </div>
 </div>
 
 
 <div class="container">
     <div class="row2">
-    <ul id="lista">
-        <li class="artist"></li>
-        <li class="album"></li>
-        <li class="track"></li>
-    </ul>
+        <ul id="lista">
+           
+        </ul>
 </div>
 </div>
 
