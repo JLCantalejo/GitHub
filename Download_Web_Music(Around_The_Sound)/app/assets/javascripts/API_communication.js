@@ -69,7 +69,12 @@ $(document).ready(function(){
 	function the_album(element2){
 		
 		total_length = element2.tracks.items.length;
-		$('#lista').append("<h2>" + element2.artists[0].name + (" - ") + element2.name + "(" + element2.release_date + ")" + "</h2>" + "<button class=buyAlbum id='"+element2.id+"'' >"+'Buy'+"</button>");
+		$('#lista').append("<h2>" + element2.artists[0].name + "</h2>");
+		$('#lista').append("<h4>" + element2.name + "</h2>");
+		$('#lista').append("<h4>" + element2.release_date + "</h2>");
+		$('#lista').append("<button class=buyAlbum id='"+element2.id+"'' >" + "<img class=add-cart-blue src='  /addtocartblue.png  '></img>" + "</button>");
+
+
 		if (element2.images[0] === undefined){
 			$("#lista").append("no hay imagen disponible");
 		}else{

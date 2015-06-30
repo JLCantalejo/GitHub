@@ -68,17 +68,63 @@ hr{
 	z-index: 999999;
 	top: 0;
 	position: fixed;
-	background-color: red;
+	background-color: #FF4500;
 	width: 99%;
-	text-align: center;
 	border: 8px solid black;
 	height: 130px;
 }
 .row2{
 	font-family: Impact;
+	color: white;
 	width: 1000px;
 	text-align: center;
 }
+#logo2{
+	float: left;
+	z-index: 999999999;
+	margin-left: 53px;
+	width: 190px;
+}
+#browser{
+	font-size: 20px;
+	text-align: center;
+	margin-right: 250px;
+	margin-top: 20px;
+}
+#link-box{
+	float: right;
+}
+.imagenAlbum{
+	bottom: 90px;
+    position: relative;
+	float:left;
+	width: 150px;
+	height: 150px;
+	
+}
+#lista{
+	position: relative;
+	z-index: 999999999999999;
+	border: inherit 3px;
+}
+#body-artists{
+	margin: 0;
+	padding: 0;
+}
+#violin{
+	z-index: 99999;
+	position: fixed;
+	right: 13px;
+    width: 1355px;
+}
+.buyAlbum{
+	padding: 0;
+	border: 0;
+	right: 400px;
+    bottom: 100px;
+    position: relative;
+}
+	
 /*
 .box{
 	position: fixed;
