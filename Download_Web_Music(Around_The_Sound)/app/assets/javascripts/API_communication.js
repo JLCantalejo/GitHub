@@ -26,12 +26,12 @@ $(document).ready(function(){
 		total_length = element.artists.items.length;
 			for(var i = 0; i < total_length; i++){
 				if (element.artists.items[i].images[0] === undefined){
-					$("ul").append("no hay imagen disponible");
+					$("ul").append("<div class=image-artist>" + "<img src='/nophotos.jpg'></img>" + "</div>");
 				}else{
-					$("ul").append("<img src='" + element.artists.items[i].images[0].url + "'></img>");
+					$("ul").append("<div class=image-artist>" + "<img src='" + element.artists.items[i].images[0].url + "'></img>" + "</div>");
 
 				};
-				$('ul').append("<a href='artists/"+element.artists.items[i].id+"'><h2>" + element.artists.items[i].name + "</h2></a>");
+				$('ul').append("<a href='artists/"+element.artists.items[i].id+"'><h2 class=name-artist>" + element.artists.items[i].name + "</h2></a>");
 
 			};
 			break;
@@ -69,9 +69,8 @@ $(document).ready(function(){
 	function the_album(element2){
 		
 		total_length = element2.tracks.items.length;
-		$('#lista').append("<h2>" + element2.artists[0].name + "</h2>");
-		$('#lista').append("<h4>" + element2.name + "</h2>");
-		$('#lista').append("<h4>" + element2.release_date + "</h2>");
+		$('#lista').append("<div class=description-album>"+"<h4>" + "Artist: " + element2.artists[0].name + "</h4>" + "</div>");
+		$('#lista').append("<div class=description-album>"+"<h5>" + "Album: " + element2.name + " ( " + element2.release_date + " ) " + "</h5>"+ "</div>");
 		$('#lista').append("<button class=buyAlbum id='"+element2.id+"'' >" + "<img class=add-cart-blue src='  /addtocartblue.png  '></img>" + "</button>");
 
 
@@ -79,13 +78,12 @@ $(document).ready(function(){
 			$("#lista").append("no hay imagen disponible");
 		}else{
 			$("#lista").append("<img class=imagenAlbum src='" + element2.images[0].url + "'></img>");
-
 		};
 			for(var i = 0; i < total_length; i++){
-			$('#lista').append("<li>" + "Canción: " + element2.tracks.items[i].name + " - " + "Álbum: " + element2.name + " - " + "Artista: " + element2.artists[0].name + "</li>");
-			$('#lista').append("<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio><hr>");
-			
+			$('#lista').append("<li class=tracks>" + "Track: " + element2.tracks.items[i].name + "</li>"+ "<br>");
+			$('#lista').append("<li class=tracks>" +"<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>" + "</li>" +"<br>")
 			};
+			$('#lista').append("<hr class=line-artists>");
 	};
 
 	var nameAlbumBoxGem;

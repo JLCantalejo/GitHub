@@ -24,6 +24,7 @@ li{
 	height: 75px;
 }
 hr{
+	margin-top: 30px;
 	border: solid 1px;
 }
 #content-header{
@@ -50,12 +51,12 @@ hr{
 
 .row1{
 	font-family: Impact;
-	margin-top: 100px;
+	margin-top: 50px;
 	width: 1000px;
 	text-align: center;
 }
 .container{
-	margin-top: 50px;
+	margin-top: 125px;
 	padding: 100px;
 }
 .destroy-all-albums{
@@ -74,6 +75,9 @@ hr{
 	height: 130px;
 }
 .row2{
+	bottom: 80px;
+    position: relative;
+    z-index: 99999;
 	font-family: Impact;
 	color: white;
 	width: 1000px;
@@ -98,13 +102,14 @@ hr{
 	bottom: 90px;
     position: relative;
 	float:left;
-	width: 150px;
-	height: 150px;
+	width: 200px;
+	height: 200px;
 	
 }
 #lista{
+	top: 1px;
 	position: relative;
-	z-index: 999999999999999;
+	z-index: 99999;
 	border: inherit 3px;
 }
 #body-artists{
@@ -120,11 +125,58 @@ hr{
 .buyAlbum{
 	padding: 0;
 	border: 0;
-	right: 400px;
-    bottom: 100px;
+	right: 195px;
+    width: 170px;
+    top: 110px;
+    
     position: relative;
 }
-	
+.add-cart-blue{
+	width: 170px;
+}
+.description-album{
+	position: relative;
+	top: 210px;
+	right: 380px;
+}
+.tracks{
+	vertical-align: middle;
+	bottom: 100px;
+	position: relative;
+	margin-left: 200px;
+}
+.line-artists{
+	margin-top: 70px;
+}
+.image-artist img{
+	position: relative;
+	right: 200px;
+	width: 300px;
+	height: 300px;
+}
+.name-artist{
+	text-align: left;
+	position: relative;
+    left: 500px;
+    bottom: 52px;
+}
+#violin-gem{
+	position: relative;
+	width: 100%;
+	height: 100%;
+    bottom: 1px;
+    right: 2px;
+}
+.image-gem{
+	bottom: 90px;
+    position: relative;
+	float:left;
+	width: 200px;
+	height: 200px;
+}
+.container3{
+	position: relative;
+}
 /*
 .box{
 	position: fixed;

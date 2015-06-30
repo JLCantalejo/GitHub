@@ -1,16 +1,21 @@
-<ul>
-	<% @albums.each do |album| %>
-			<li><h3><%= album.name %></h3><button class="buy-album" id="<%= album.id %>">Buy</button></li>
-		<% if album.images[0] == nil %>
-			<li>No hay imagen</li><br>
-		<% else %>
-			<li><img src="<%= album.images[1]['url'] %>"></li><br>
-		<% end %>
-		<% album.tracks.each do |track| %>
-			<li><%= track.name %></li>
-			<li><audio src="<%= track.preview_url %>" controls ></audio></li>
-		<% end %>
-		
-		
-	<% end %>
- </ul>
+<div id="body-artists">
+	<img src="/violin.jpg" id="violin-gem">
+	<div class="container">
+    	<div class="row3">
+			<ul>
+				<% @albums.each do |album| %>
+					<li><h3><%= album.name %></h3><button class="buy-album" id="<%= album.id %>"><img src="/addtocartorange.png"></button></li>
+					<% if album.images[0] == nil %>
+						<li>No hay imagen</li><br>
+					<% else %>
+						<li><img class="image-gem" src="<%= album.images[0]['url'] %>"></li><br>
+					<% end %>
+					<% album.tracks.each do |track| %>
+						<li><%= track.name %></li>
+						<li><audio src="<%= track.preview_url %>" controls ></audio></li>
+					<% end %>	
+				<% end %>
+			</ul>
+		</div>
+    </div>
+</div>
