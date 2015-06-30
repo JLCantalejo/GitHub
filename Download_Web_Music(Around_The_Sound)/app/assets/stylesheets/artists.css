@@ -161,22 +161,52 @@ hr{
     bottom: 52px;
 }
 #violin-gem{
-	position: relative;
-	width: 100%;
-	height: 100%;
+	z-index: 99999;
+	position: fixed;
+	right: 13px;
+    width: 1355px;
     bottom: 1px;
-    right: 2px;
 }
 .image-gem{
-	bottom: 90px;
     position: relative;
-	float:left;
 	width: 200px;
 	height: 200px;
+	z-index: 99999999999;
 }
-.container3{
+#body-gem{
+	font-family: impact;
+	color: white;
 	position: relative;
 }
+#list-gem{
+	bottom: 200px;
+	position: relative;
+}
+.track-gem{
+	text-align: center;
+	position: relative;
+	z-index: 9999999999999;
+
+}
+.album-gem{
+	position: relative;
+	z-index: 999999999999999;
+	
+}
+.buy-album{
+	color: black;
+	position: relative;
+	z-index: 999999999999999;
+
+}
+.title{
+	position: relative;
+	z-index: 999999999999999;
+	text-align: center;
+	font-family: impact;
+	color: white;
+}
+
 /*
 .box{
 	position: fixed;
