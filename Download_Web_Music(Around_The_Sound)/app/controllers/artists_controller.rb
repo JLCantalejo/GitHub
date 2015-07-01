@@ -5,5 +5,6 @@ class ArtistsController < ApplicationController
 		@artist_id = params[:id]
 		artist_spotify = RSpotify::Artist.find(@artist_id)
 		@artist = artist_spotify
+		binding.pry
 	end
 end

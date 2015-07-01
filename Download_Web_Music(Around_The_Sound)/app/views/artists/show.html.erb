@@ -6,5 +6,6 @@
 	<% else %>
 		<img src="<%= @artist.images[0]['url'] %>"><br>
 	<% end %>
-
+	@artist.followers["total"]
+	@artist.popularity
 <%= link_to 'Back', root_path %>

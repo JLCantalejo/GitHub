@@ -165,7 +165,7 @@ $(document).ready(function(){
 
 	for(var i = 0; i < n.length; i++){
 		console.log(n)
-		$('.box1').append("<li>" + "Album: " + n[i] /*+ "<button class=destroyAlbum>"+'Delete'+"</button>"*/ + "</li>" + "<br>" + "<hr>");
+		$('.box1').append("<li>" + "<strong>" + "Album: " + n[i] /*+ "<button class=destroyAlbum>"+'Delete'+"</button>"*/ + "</strong>" + "</li>" + "<br>" + "<hr>");
 		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 		
 	};
@@ -183,10 +183,10 @@ $(document).ready(function(){
 		console.log(x)
 		totalPrice += parseFloat(x[i]);
 		console.log(totalPrice)
-		$('.box2').append("<li>" + "Price: " + x[i] + "€" + "</li>" + "<br>" + "<hr>");
+		$('.box2').append("<li>"+ "<strong>" + "Price: " + x[i] + " €" + "</strong>" + "</li>" + "<br>" + "<hr>");
 		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 	};
-	$('.total-price span').append("<span>" + totalPrice + "€" + "</span>");
+	$('.total-price span').append("<span>" + totalPrice + " €" + "</span>");
 
 	console.log(x);
 
