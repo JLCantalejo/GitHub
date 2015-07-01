@@ -12,5 +12,11 @@
 	<% end %>
 	<li class="list">Followers: <%= @artist.followers["total"] %></li>
 	<li class="list">Popularity: <%= @artist.popularity %>%</li>
-	<li class="list">Genre: <%= @artist.genres[0].upcase %></li>
+	<li class="list">
+		<%if @artist.genres[0] == nil %>
+		
+		<% else %>
+		Genre: <%= @artist.genres[0].upcase %>
+		<% end %>
+	</li>
 </div>
