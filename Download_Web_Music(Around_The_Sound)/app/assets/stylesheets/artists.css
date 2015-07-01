@@ -150,8 +150,8 @@ hr{
 .image-artist img{
 	position: relative;
 	right: 200px;
-	width: 300px;
-	height: 300px;
+	width: 400px;
+	
 }
 .name-artist{
 	text-align: left;
@@ -227,7 +227,7 @@ hr{
 #logo-gem{
 	position: relative;
 	z-index: 999999999;
-	left: 470px;
+	left: 500px;
     bottom: 60px;
     width: 100px;
 }
@@ -247,7 +247,22 @@ hr{
 strong{
 	background-color: black;
 }
-
+.image-artist-show{
+	width: 400px;
+}
+.content-artist{
+	text-align: center;
+	position: relative;
+    z-index: 999999999999999999999999999999;
+}
+.list{
+	color: white;
+	font-size: 25px;
+	font-family: serif;
+	text-align: left;
+	left: 500px;
+	position: relative;
+}
 /*
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
