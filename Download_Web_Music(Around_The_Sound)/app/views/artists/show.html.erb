@@ -6,7 +6,7 @@
 <div class="content-artist">
 
 	<% if @artist.images[0] == nil %>
-		No hay imagen<br>
+		<img class="image-artist-show" src="/nophotos.jpg"></img><br>
 	<% else %>
 		<img class="image-artist-show" src="<%= @artist.images[0]['url'] %>"><br>
 	<% end %>
