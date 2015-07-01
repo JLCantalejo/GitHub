@@ -20,38 +20,32 @@ $(document).ready(function(){
 	var idSong;
 
 	function searchArtistAlbumTrack(element){
-		//console.log(element);
 		switch(selectOption){
 			case "artist":
-		total_length = element.artists.items.length;
-			for(var i = 0; i < total_length; i++){
-				if (element.artists.items[i].images[0] === undefined){
-					$("ul").append("<div class=image-artist>" + "<img src='/nophotos.jpg'></img>" + "</div>");
-				}else{
-					$("ul").append("<div class=image-artist>" + "<img src='" + element.artists.items[i].images[0].url + "'></img>" + "</div>");
-
+				total_length = element.artists.items.length;
+				for(var i = 0; i < total_length; i++){
+					if (element.artists.items[i].images[0] === undefined){
+						$("ul").append("<div class=image-artist>" + "<img src='/nophotos.jpg'></img>" + "</div>");
+					}else{
+						$("ul").append("<div class=image-artist>" + "<img src='" + element.artists.items[i].images[0].url + "'></img>" + "</div>");
+					};
+					$('ul').append("<a href='artists/"+element.artists.items[i].id+"'><h2 class=name-artist>" + element.artists.items[i].name + "</h2></a>");
 				};
-				$('ul').append("<a href='artists/"+element.artists.items[i].id+"'><h2 class=name-artist>" + element.artists.items[i].name + "</h2></a>");
-
-			};
-			break;
+				break;
 			case "album":
-		total_length = element.albums.items.length;
-			//console.log(element);
-			for(var i = 0; i < total_length; i++){
-				idAlbum = element.albums.items[i].id;
-			//console.log(idAlbum);
-				getAlbumsFromArtist(idAlbum);
-			};
-			break;
+				total_length = element.albums.items.length;
+				for(var i = 0; i < total_length; i++){
+					idAlbum = element.albums.items[i].id;
+					getAlbumsFromArtist(idAlbum);
+				};
+				break;
 			case "track":
-		total_length = element.tracks.items.length;
-			for(var i = 0; i < total_length; i++){
-				idSong = element.tracks.items[i].id;
-			//console.log(idSong);
-				getSongsFromArtist(idSong);
-			};
-			break;
+				total_length = element.tracks.items.length;
+				for(var i = 0; i < total_length; i++){
+					idSong = element.tracks.items[i].id;
+					getSongsFromArtist(idSong);
+				};
+				break;
 		};
 	};
 
@@ -73,17 +67,16 @@ $(document).ready(function(){
 		$('#lista').append("<div class=description-album>"+"<h5>" + "Album: " + element2.name + " ( " + element2.release_date + " ) " + "</h5>"+ "</div>");
 		$('#lista').append("<button class=buyAlbum id='"+element2.id+"'' >" + "<img class=add-cart-blue src='  /addtocartblue.png  '></img>" + "</button>");
 
-
 		if (element2.images[0] === undefined){
 			$("#lista").append("no hay imagen disponible");
 		}else{
 			$("#lista").append("<img class=imagenAlbum src='" + element2.images[0].url + "'></img>");
 		};
 			for(var i = 0; i < total_length; i++){
-			$('#lista').append("<li class=tracks>" + "Track: " + element2.tracks.items[i].name + "</li>"+ "<br>");
-			$('#lista').append("<li class=tracks>" +"<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>" + "</li>" +"<br>")
+				$('#lista').append("<li class=tracks>" + "Track: " + element2.tracks.items[i].name + "</li>"+ "<br>");
+				$('#lista').append("<li class=tracks>" +"<audio src='" + element2.tracks.items[i].preview_url + "' controls ></audio>" + "</li>" +"<br>")
 			};
-			$('#lista').append("<hr class=line-artists>");
+				$('#lista').append("<hr class=line-artists>");
 	};
 
 	var nameAlbumBoxGem;
@@ -164,10 +157,7 @@ $(document).ready(function(){
 	n.pop();
 
 	for(var i = 0; i < n.length; i++){
-		console.log(n)
 		$('.box1').append("<li>" + "<strong>" + "Album: " + n[i] /*+ "<button class=destroyAlbum>"+'Delete'+"</button>"*/ + "</strong>" + "</li>" + "<br>" + "<hr>");
-		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
-		
 	};
 	if (localStorage.getItem('priceAlbumBoxGem') == null){
 		var pricesOfALbumsInBox = localStorage.getItem('priceAlbumBox') + localStorage.getItem('priceAlbumBoxGem')
@@ -180,15 +170,10 @@ $(document).ready(function(){
 	var totalPrice = 0
 
 	for(var i = 0; i < x.length; i++){
-		console.log(x)
 		totalPrice += parseFloat(x[i]);
-		console.log(totalPrice)
 		$('.box2').append("<li>"+ "<strong>" + "Price: " + x[i] + " €" + "</strong>" + "</li>" + "<br>" + "<hr>");
-		//$('.box').append("<li>" + "Álbum: " + element4.name + "</li>");
 	};
 	$('.total-price span').append("<span>" + totalPrice + " €" + "</span>");
-
-	console.log(x);
 
 	$("body").on("click",".destroy-all-albums", function(){
 		localStorage.clear();
@@ -217,7 +202,6 @@ $(document).ready(function(){
 	};
 
 	function the_song(element3){
-		//console.log(element3);
 		$('ul').append("<li>" + "Canción: " + element3.name + " - " + "Álbum: " + element3.album.name + " - " + "Artista: " + element3.artists[0].name + "</li>");
 		$('ul').append("<audio src='" + element3.preview_url + "' controls ></audio>");	
 	};

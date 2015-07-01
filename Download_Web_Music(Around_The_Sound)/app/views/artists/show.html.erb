@@ -1,10 +1,10 @@
+<h1 class="title">Artist</h1>
 
-	<h1 class="title"><%= link_to @artist.name,artist_albums_path(@artist.id) %></h1><br>
-	<a href="http://localhost:3000/artists"><img src="/Logo2.png" id="logo-gem"></a>
-	<a href="http://localhost:3000/boxes"><img src="/musicbox.png" id="music-box-gem"></a>
-	<img src="/violin.jpg" id="violin-gem">
+<a href="http://localhost:3000/artists"><img src="/Logo2.png" id="logo-gem"></a>
+<a href="http://localhost:3000/boxes"><img src="/musicbox.png" id="music-box-gem"></a>
+<h1 class="name-of-artist"><%= link_to @artist.name,artist_albums_path(@artist.id) %></h1><br>
+<img src="/violin.jpg" id="violin-gem">
 <div class="content-artist">
-
 	<% if @artist.images[0] == nil %>
 		<img class="image-artist-show" src="/nophotos.jpg"></img><br>
 	<% else %>
@@ -12,7 +12,5 @@
 	<% end %>
 	<li class="list">Followers: <%= @artist.followers["total"] %></li>
 	<li class="list">Popularity: <%= @artist.popularity %>%</li>
-	<li class="list">Genre: <%= @artist.genres[0] %></li>
-
-
+	<li class="list">Genre: <%= @artist.genres[0].upcase %></li>
 </div>

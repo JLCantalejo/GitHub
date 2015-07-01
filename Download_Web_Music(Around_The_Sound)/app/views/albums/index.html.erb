@@ -4,21 +4,20 @@
 <div id="body-gem">
 	<img src="/violin.jpg" id="violin-gem">
 	<div class="container">
-			<ul id="list-gem">
-				<% @albums.each do |album| %>
+		<ul id="list-gem">
+			<% @albums.each do |album| %>
 				<button class="buy-album" id="<%= album.id %>"><img src="/addtocartblue.png" id=""></button>
-					<li><h4 class="album-gem"><%= album.name %></h4></li>
-					<% if album.images[0] == nil %>
-						<li>No hay imagen</li><br>
-					<% else %>
-						<li><img class="image-gem" src="<%= album.images[0]['url'] %>"></li><br>
-					<% end %>
-
+				<li><h4 class="album-gem"><%= album.name %></h4></li>
+				<% if album.images[0] == nil %>
+					<li>No hay imagen</li><br>
+				<% else %>
+					<li><img class="image-gem" src="<%= album.images[0]['url'] %>"></li><br>
+				<% end %>
 					<% album.tracks.each do |track| %>
 						<li class="track-gem"><%= track.name %></li>
 						<li class="track-gem"><audio src="<%= track.preview_url %>" controls ></audio></li>
 					<% end %>
-				<% end %>
-			</ul>
-		</div>
+			<% end %>
+		</ul>
+	</div>
 </div>

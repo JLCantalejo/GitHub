@@ -263,6 +263,12 @@ strong{
 	left: 500px;
 	position: relative;
 }
+.name-of-artist{
+	text-align: center;
+	z-index: 99999999999999999999999999999;
+    font-size: 36px;
+    position: relative;
+}
 /*
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
